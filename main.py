@@ -3,7 +3,7 @@ import logging
 from aiogram import executor
 from bot_config import dp, database, ADMINS, bot
 from handlers import (start, picture, other_message,
-                      complaint_dialog, store_fsm)
+                      complaint_dialog, store_fsm, send_products)
 
 from db.main_db import create_tables
 
@@ -25,6 +25,7 @@ picture.register_handlers(dp)
 complaint_dialog.register_handlers(dp)
 store_fsm.register_handlers(dp)
 
+send_products.register_handlers(dp)
 
 other_message.register_handlers(dp)
 database.create_tables()

@@ -75,6 +75,8 @@ async def load_photo(message: types.Message, state: FSMContext):
                          f'Размер - {data["size"]}\n'
                          f'Артикул - {data["product_id"]}\n')
 
+
+
 async def submit_load(message: types.Message, state: FSMContext):
     if message.text == 'да':
         async with state.proxy() as data:
