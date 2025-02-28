@@ -68,3 +68,14 @@ def update_product_field(product_id, field_name, new_value):
 
     finally:
         conn.close()
+
+
+
+def delete_product(product_id):
+    conn = get_db_connection()
+
+    conn.execute('DELETE FROM store WHERE product_id = ?', (product_id,))
+    conn.execute('DELETE FROM store_details WHERE product_id = ?', (product_id,))
+
+    conn.commit()
+    conn.close()

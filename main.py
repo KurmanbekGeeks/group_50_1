@@ -4,7 +4,8 @@ from aiogram import executor
 from bot_config import dp, database, ADMINS, bot
 from handlers import (start, picture, other_message,
                       complaint_dialog, store_fsm,
-                      send_products, edit_product)
+                      send_products, edit_product,
+                      delete_products, admin_group)
 
 from db.main_db import create_tables
 
@@ -28,6 +29,9 @@ store_fsm.register_handlers(dp)
 
 send_products.register_handlers(dp)
 edit_product.register_handlers(dp)
+delete_products.register_handlers(dp)
+
+admin_group.register_handlers(dp)
 
 other_message.register_handlers(dp)
 database.create_tables()
